@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Vue TodoMVC</h1>
+    <h1>Vue Todo App</h1>
     <section>
       <h4>
         <label>
@@ -19,7 +19,7 @@
         <input type="text" placeholder="Add new!">
 
         <!-- TODO: You can enable/disable a button by giving the "disabled" prop a boolean value. Try it out with our submitIsDisabled property. -->
-        <button>Add Todo</button>
+        <button type="submit">Add Todo</button>
       </form>
     </section>
   </div>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>Vue TodoMVC</h1>
+    <h1>Vue Todo App</h1>
     <section>
       <h4>
         <label>
@@ -11,7 +11,7 @@
       <TodoList :todos="filteredTodos"/>
       <form v-on:submit.prevent="addTodo">
         <input type="text" v-model="text" placeholder="Add new!">
-        <button :disabled="submitIsDisabled">Add Todo</button>
+        <button :disabled="submitIsDisabled" type="submit">Add Todo</button>
       </form>
     </section>
   </div>
@@ -54,7 +54,7 @@ export default {
         name: this.text,
         complete: false
       });
-      this.text = ``;
+      this.text = "";
     }
   }
 };
