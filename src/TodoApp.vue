@@ -5,21 +5,21 @@
       <h4>
         <label>
           <!-- TODO: The v-model attribute allows you to create a two way databinding. Try to bind the value of the input to our showComplete property. -->
-          <input type="checkbox" v-model="showComplete">
+          <input type="checkbox">
           Show Completed
         </label>
       </h4>
 
       <!-- TODO: The TodoList component receives a prop named "todos" and renders all items in that array in a list. You can bind your own properties to subcomponents with <Element :propName="ownPropName" />. It begins with a colon (:), indicating that Vue should interpret the value as an expression, and not a string. Try passing the filteredTodos into the TodoList. -->
-      <TodoList :todos="filteredTodos"/>
+      <TodoList/>
 
       <!-- Here, a form is used to contain the submit button (which allows keyboard input to be captured.) Notice the v-on directive being used. The .prevent method works the same as submit, but also prevents the default behavior. -->
       <form v-on:submit.prevent="addTodo">
         <!-- TODO: The v-model attribute allows you to create a two way databinding. Try to bind the value of the input to our text property. -->
-        <input type="text" v-model="text" placeholder="Add new!">
+        <input type="text" placeholder="Add new!">
 
         <!-- TODO: You can enable/disable a button by giving the "disabled" prop a boolean value. Try it out with our submitIsDisabled property. -->
-        <button :disabled="submitIsDisabled">Add Todo</button>
+        <button>Add Todo</button>
       </form>
     </section>
   </div>
@@ -55,13 +55,10 @@ export default {
    */
   computed: {
     /**
-     * TODO: Returns a list of todos with the completed ones removed, when the showComplete is false.
+     * TODO: Returns a list of todos with the completed ones removed, when the showComplete property is false.
      */
     filteredTodos() {
-      //return this.todos;
-      return this.todos.filter(todo =>
-        this.showComplete ? true : !todo.complete
-      );
+      return this.todos;
     },
 
     /**
@@ -69,7 +66,7 @@ export default {
      * Disable the button if the text is empty.
      */
     submitIsDisabled() {
-      return this.text == "";
+      return false;
     }
   },
 
@@ -83,11 +80,6 @@ export default {
      * TODO: addTodo() takes whatever is in the text input box, and makes it into a list element. Vue components can access their own properties through the "this" special keyword.
      */
     addTodo() {
-      this.todos.push({
-        name: this.text,
-        complete: false
-      });
-      this.text = ``;
     }
   }
 };
